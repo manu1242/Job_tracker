@@ -44,7 +44,7 @@ const JobList = ({ jobs, fetchJobs }) => {
                 height: '10px',
                 borderRadius: '50%',
                 backgroundColor: getStatusDotColor(job.status),
-                marginRight: '6px',
+                MarginLeft: '7px',
               }}
             ></span>
             
