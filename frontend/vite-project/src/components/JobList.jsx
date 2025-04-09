@@ -25,10 +25,10 @@ const JobList = ({ jobs, fetchJobs }) => {
     <div className="job-list">
       {jobs.map(job => (
         <div key={job._id} className="job-card">
-          <h3>{job.company}</h3>
-          <p>{job.role}</p>
-          <p>Status: {job.status}</p>
-          <p>Date: {job.date}</p>
+          <h3>Company:-{job.company}</h3>
+          <p> JobRole:-{job.role}</p>
+          <p>Status:- {job.status}</p>
+          <p>Date:- {job.date}</p>
           <a href={job.link} target="_blank" rel="noreferrer">Link</a>
           <select
             value={job.status}
