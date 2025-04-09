@@ -19,7 +19,7 @@ const App = () => {
   }
 
   const fetchJobs = async () => {
-    const res = await fetch('http://localhost:5000/api/jobs')
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs`)
     const data = await res.json()
     const sortedJobs = sortByDate(data)
     setJobs(sortedJobs)

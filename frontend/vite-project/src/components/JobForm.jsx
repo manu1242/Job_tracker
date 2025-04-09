@@ -13,7 +13,7 @@ const JobForm = ({ fetchJobs }) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await fetch('http://localhost:5000/api/jobs', {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -21,6 +21,7 @@ const JobForm = ({ fetchJobs }) => {
     setFormData({ company: '', role: '', status: 'Applied', date: '', link: '' })
     fetchJobs()
   }
+  
   return (
     <form onSubmit={handleSubmit} className="form">
       <input name="company" value={formData.company} onChange={handleChange} placeholder="CompanyName" required />
@@ -37,5 +38,4 @@ const JobForm = ({ fetchJobs }) => {
     </form>
   )
 }
-
 export default JobForm
