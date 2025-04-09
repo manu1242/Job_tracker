@@ -34,7 +34,7 @@ const App = () => {
     fetchJobs()
   }, [])
 
-  // Filtering logic
+ 
   useEffect(() => {
     let filtered = [...jobs]
     if (filterStatus) {
@@ -50,7 +50,7 @@ const App = () => {
     <div className="container">
       <h1>Student Job Tracker</h1>
 
-      {/* Status counts */}
+      {}
       <div className="status-stats">
         {Object.entries(statusCounts).map(([status, count]) => (
           <span key={status} className="status-badge">
@@ -59,7 +59,7 @@ const App = () => {
         ))}
       </div>
 
-      {/* Filters */}
+      { }
       <div className="filters">
         <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
           <option value="">All Statuses</option>
