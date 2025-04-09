@@ -5,7 +5,6 @@ const JobList = ({ jobs, fetchJobs }) => {
     await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
       method: 'DELETE',
     })
-    
     fetchJobs()
   }
 
@@ -13,9 +12,13 @@ const JobList = ({ jobs, fetchJobs }) => {
     await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status })
+      body: JSON.stringify({ status }),
     })
     fetchJobs()
+  }
+
+  if (jobs.length === 0) {
+    return <p style={{ textAlign: 'center', marginTop: '2rem' }}>No job applications yet.</p>
   }
 
   return (
@@ -27,7 +30,10 @@ const JobList = ({ jobs, fetchJobs }) => {
           <p>Status: {job.status}</p>
           <p>Date: {job.date}</p>
           <a href={job.link} target="_blank" rel="noreferrer">Link</a>
-          <select value={job.status} onChange={e => handleStatusChange(job._id, e.target.value)}>
+          <select
+            value={job.status}
+            onChange={e => handleStatusChange(job._id, e.target.value)}
+          >
             <option>Applied</option>
             <option>Interview</option>
             <option>Offer</option>
