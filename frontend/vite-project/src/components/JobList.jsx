@@ -30,15 +30,7 @@ const JobList = ({ jobs, fetchJobs }) => {
           <p>Status:- {job.status}</p>
           <p>Date:- {job.date}</p>
           <a href={job.link} target="_blank" rel="noreferrer">Link</a>
-          <select
-            value={job.status}
-            onChange={e => handleStatusChange(job._id, e.target.value)}
-          >
-            <option>Applied</option>
-            <option>Interview</option>
-            <option>Offer</option>
-            <option>Rejected</option>
-          </select>
+          
           <button onClick={() => handleDelete(job._id)}>Delete</button>
         </div>
       ))}
