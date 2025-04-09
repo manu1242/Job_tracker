@@ -25,7 +25,7 @@ const JobList = ({ jobs, fetchJobs }) => {
     <div className="job-list">
       {jobs.map(job => (
         <div key={job._id} className="job-card">
-          <h3>Company:-{job.company}</h3>
+          <h5>Company:-{job.company}</h5>
           <p> JobRole:-{job.role}</p>
           <p>Status:- {job.status}</p>
           <p>Date:- {job.date}</p>
