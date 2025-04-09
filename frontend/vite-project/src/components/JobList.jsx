@@ -8,13 +8,19 @@ const JobList = ({ jobs, fetchJobs }) => {
     fetchJobs()
   }
 
-  const handleStatusChange = async (id, status) => {
-    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
-    })
-    fetchJobs()
+  const getStatusDotColor = status => {
+    switch (status) {
+      case 'Applied':
+        return 'orange'
+      case 'Interview':
+        return 'blue'
+      case 'Offer':
+        return 'green'
+      case 'Rejected':
+        return 'red'
+      default:
+        return 'gray'
+    }
   }
 
   if (jobs.length === 0) {
@@ -24,14 +30,28 @@ const JobList = ({ jobs, fetchJobs }) => {
   return (
     <div className="job-list">
       {jobs.map(job => (
-        <div key={job._id} className="job-card">
-          <h5>Company:-{job.company}</h5>
-          <p> JobRole:-{job.role}</p>
-          <p>Status:- {job.status}</p>
-          <p>Date:- {job.date}</p>
+        <div key={job._id} className="job-card" style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
+          <h4>Company:</h4>
+          <h3>{job.company}</h3>
+          <p>Job Role: {job.role}</p>
+          <p style={{ display: 'flex', alignItems: 'center' }}>
+            Status:&nbsp;
+            <span
+              style={{
+                display: 'inline-block',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                backgroundColor: getStatusDotColor(job.status),
+                marginRight: '6px',
+              }}
+            ></span>
+            {job.status}
+          </p>
+          <p>Date: {job.date}</p>
           <a href={job.link} target="_blank" rel="noreferrer">Link</a>
-          
-          <button onClick={() => handleDelete(job._id)}>Delete</button>
+          <br />
+          <button onClick={() => handleDelete(job._id)} style={{ marginTop: '0.5rem' }}>Delete</button>
         </div>
       ))}
     </div>
