@@ -25,7 +25,18 @@ body {
   margin-bottom: 2rem;
   color: #020202;
 }
-
+.comp{
+  display: flex;
+  font-family: Arial, sans-serif;
+  
+  
+}
+.name{
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  margin-top: 12px;
+  margin-left: 5px;
+}
 
 .form {
   background: #fff;
@@ -76,10 +87,17 @@ body {
   gap: 1.5rem;
   margin-top: 1rem;
 }
+.tag{
+  display:flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #3b3b3b;
+}
 
 
 .job-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(243, 240, 240, 0.95);
   padding: 1.8rem;
   border-radius: 16px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);

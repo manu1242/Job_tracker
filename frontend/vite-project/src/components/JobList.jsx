@@ -31,8 +31,9 @@ const JobList = ({ jobs, fetchJobs }) => {
     <div className="job-list">
       {jobs.map(job => (
         <div key={job._id} className="job-card" style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
-          <h4>Company:</h4>
-          <h3>{job.company}</h3>
+          <div className='tag'><h2 className='comp'>Company:</h2>
+          <h3 className='name'>{job.company}</h3></div>
+          
           <p>Job Role: {job.role}</p>
           <p style={{ display: 'flex', alignItems: 'center' }}>
             Status:&nbsp;
