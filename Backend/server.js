@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import jobRoutes from './routes/jobroutes.js'
+import jobRoutes from './routes/jobRoutes.js'
 dotenv.config()
 const app = express()
 
