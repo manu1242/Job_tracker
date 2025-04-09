@@ -36,6 +36,7 @@ const JobList = ({ jobs, fetchJobs }) => {
           <p>Job Role: {job.role}</p>
           <p style={{ display: 'flex', alignItems: 'center' }}>
             Status:&nbsp;
+            {job.status}
             <span
               style={{
                 display: 'inline-block',
@@ -46,7 +47,7 @@ const JobList = ({ jobs, fetchJobs }) => {
                 marginRight: '6px',
               }}
             ></span>
-            {job.status}
+            
           </p>
           <p>Date: {job.date}</p>
           <a href={job.link} target="_blank" rel="noreferrer">Link</a>
