@@ -10,7 +10,7 @@ const JobList = ({ jobs, fetchJobs }) => {
   }
 
   const handleStatusChange = async (id, status) => {
-    await fetch(`http://localhost:5000/api/jobs/${id}`, {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status })
