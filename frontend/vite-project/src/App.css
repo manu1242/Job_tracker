@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  background: #ffffffd5;
   color: #000000;
   line-height: 1.6;
 }
@@ -64,10 +64,16 @@ body {
   outline: none;
 }
 
+
+
+
+
 .form button {
+  font-size: 1.15rem;
+  font-family:  sans-serif;
   flex: 1 1 100%;
   padding: 0.9rem;
-  background-color: #125eaf;
+  background-color: #6366F1;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -108,6 +114,21 @@ body {
   height: 100%;
   border: 1px solid #eaeaea;
   backdrop-filter: blur(6px);
+}
+.filters {
+  display: flex;
+  gap: 35rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.filters select,
+.filters input[type="date"] {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 
@@ -151,7 +172,7 @@ body {
   margin-top: 1rem;
   padding: 0.75rem;
   width: 100%;
-  background-color: #cb0213;
+  background-color: #ff3e3e;
   color: white;
   border: none;
   border-radius: 8px;
