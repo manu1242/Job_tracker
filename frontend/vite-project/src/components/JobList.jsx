@@ -40,8 +40,8 @@ const JobList = ({ jobs, fetchJobs }) => {
             <span
               style={{
                 display: 'inline-block',
-                width: '10px',
-                height: '10px',
+                width: '7px',
+                height: '7px',
                 borderRadius: '50%',
                 backgroundColor: getStatusDotColor(job.status),
                 marginLeft: '10px',
