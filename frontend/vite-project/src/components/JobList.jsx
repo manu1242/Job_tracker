@@ -2,11 +2,15 @@ import React from 'react'
 
 const JobList = ({ jobs, fetchJobs }) => {
   const handleDelete = async id => {
-    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, { method: 'DELETE' })
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
+      method: 'DELETE',
+    })
+    
     fetchJobs()
   }
+
   const handleStatusChange = async (id, status) => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs`, {
+    await fetch(`http://localhost:5000/api/jobs/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status })
