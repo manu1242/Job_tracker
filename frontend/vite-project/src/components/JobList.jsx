@@ -51,6 +51,7 @@ const JobList = ({ jobs, fetchJobs }) => {
             value={job.status}
             onChange={e => handleStatusChange(job._id, e.target.value)}
             style={{
+              width: '50%',
               marginTop: '0.5rem',
               color: '#fff',
               backgroundColor: getStatusColor(job.status),
