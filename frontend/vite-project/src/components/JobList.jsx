@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const JobList = ({ jobs, fetchJobs }) => {
   const handleDelete = async id => {
     await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
@@ -8,18 +9,18 @@ const JobList = ({ jobs, fetchJobs }) => {
     fetchJobs()
   }
 
-  const getStatusDotColor = status => {
+  const getStatusClass = status => {
     switch (status) {
       case 'Applied':
-        return 'orange'
+        return 'status-applied'
       case 'Interview':
-        return 'blue'
+        return 'status-interview'
       case 'Offer':
-        return 'green'
+        return 'status-offer'
       case 'Rejected':
-        return 'red'
+        return 'status-rejected'
       default:
-        return 'gray'
+        return 'status-default'
     }
   }
 
@@ -28,34 +29,42 @@ const JobList = ({ jobs, fetchJobs }) => {
   }
 
   return (
-    <div className="job-list">
-      {jobs.map(job => (
-        <div key={job._id} className="job-card" style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
-          <div className='tag'><h2 className='comp'>Company:</h2>
-          <h3 className='name'>{job.company}</h3></div>
-          
-          <p>Job Role: {job.role}</p>
-          <p style={{ display: 'flex', alignItems: 'center' }}>
-            Status:&nbsp;
-            {job.status}
-            <span
-              style={{
-                display: 'inline-block',
-                width: '7px',
-                height: '7px',
-                borderRadius: '50%',
-                backgroundColor: getStatusDotColor(job.status),
-                marginLeft: '10px',
-              }}
-            ></span>
-            
-          </p>
-          <p>Date: {job.date}</p>
-          <a href={job.link} target="_blank" rel="noreferrer">Link</a>
-          <br />
-          <button onClick={() => handleDelete(job._id)} style={{ marginTop: '0.5rem' }}>Delete</button>
-        </div>
-      ))}
+    <div className="table-container">
+      <table className="job-table">
+        <thead className='table-header'>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Link</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {jobs.map(job => (
+            <tr key={job._id}>
+              <td>{job.company}</td>
+              <td>{job.role}</td>
+              <td>
+                {job.status}
+                <span className={`status-dot ${getStatusClass(job.status)}`}></span>
+              </td>
+              <td>{job.date}</td>
+              <td>
+                <a href={job.link} target="_blank" rel="noreferrer">
+                  View
+                </a>
+              </td>
+              <td>
+                <button className="delete-btn" onClick={() => handleDelete(job._id)}>
+                  🗑
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
